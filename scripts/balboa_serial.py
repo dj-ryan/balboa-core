@@ -47,7 +47,7 @@ class TheNode(object):
     rospy.init_node('balboa_serial')
 
     # When using Docker and serial forwarding baud rate doesn't matter
-    port_file = '/dev/tty_serial_bridge'
+    port_file = '/dev/ttyACM0'
     baud = 57600
 
     self.port = serial.Serial(port=port_file, baudrate=baud)
