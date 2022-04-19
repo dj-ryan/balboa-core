@@ -47,7 +47,7 @@ class TheNode(object):
     rospy.init_node('balboa_serial')
 
     # When using Docker and serial forwarding baud rate doesn't matter
-    port_file = '/dev/ttyACM0'
+    port_file = '/dev/tty_serial_bridge'
     baud = 57600
 
     self.port = serial.Serial(port=port_file, baudrate=baud)
@@ -88,11 +88,6 @@ class TheNode(object):
       msg.distanceLeft = self.readFourByteAndChecksum()
       msg.distanceRight = self.readFourByteAndChecksum()
       ## Added by Group ##
-      msg.IRsensor1 = self.readFourByteAndChecksum()
-      msg.IRsensor2 = self.readFourByteAndChecksum()
-      msg.IRsensor3 = self.readFourByteAndChecksum()
-      msg.IRsensor4 = self.readFourByteAndChecksum()
-      msg.IRsensor5 = self.readFourByteAndChecksum()
       msg.rangeSensor = self.readFourByteAndChecksum() 
  
       # print("~~~~~~~")
